@@ -2,7 +2,8 @@
 coverage/*
 logs/*
 node_modules/*
-
+configs.csv
+configs.json
 helix-importer-ui
 .DS_Store
 *.bak
