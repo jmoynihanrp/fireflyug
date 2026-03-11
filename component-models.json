@@ -180,60 +180,6 @@
     ]
   },
   {
-    "id": "create-page-form",
-    "fields": [
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "createPageFormDescription",
-        "label": "Create Page Form Description",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "createImageFieldDescription",
-        "label": "Create Image Field Description",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "createContentFieldDescription",
-        "label": "Create Content Field Description",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "createContentButtonText",
-        "label": "Create Content Button Text",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "createImageButtonText",
-        "label": "Create Image Button Text",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "createImageResponseLabel",
-        "label": "Create Image Response Label",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "createContentResponseLabel",
-        "label": "Create Content Response Label",
-        "multi": false
-      }
-    ]
-  },
-  {
     "id": "fragment",
     "fields": [
       {
@@ -273,15 +219,18 @@
     "id": "article-list",
     "fields": [
       {
-        "component": "reference",
-        "name": "folder",
-        "label": "Folder",
-        "multi": false
+        "component": "text",
+        "valueType": "string",
+        "name": "url",
+        "label": "URL",
+        "value": ""
       },
       {
         "component": "text",
+        "valueType": "string",
         "name": "title",
-        "label": "Title"
+        "label": "Title",
+        "value": ""
       }
     ]
   },
@@ -289,10 +238,11 @@
     "id": "article-detail",
     "fields": [
       {
-        "component": "reference",
-        "name": "folder",
-        "label": "Folder",
-        "multi": false
+        "component": "text",
+        "valueType": "string",
+        "name": "url",
+        "label": "URL",
+        "value": ""
       }
     ]
   }

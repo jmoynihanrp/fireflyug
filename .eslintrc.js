@@ -16,11 +16,11 @@ module.exports = {
   },
   rules: {
     'import/extensions': ['error', {
-      js: 'always'
+      js: 'always',
     }], // require js file extensions in imports
     'linebreak-style': 'off', // accept all linebreak styles
     'no-param-reassign': [2, {
-      props: false
+      props: false,
     }], // allow modifying properties of param
     // Form component cell limits
     'xwalk/max-cells': ['error', {
@@ -48,10 +48,10 @@ module.exports = {
       modal: 11,
       rating: 18,
       password: 20,
-      tnc: 12
+      tnc: 12,
     }],
 
     // Disable this rule for forms
-    'xwalk/no-orphan-collapsible-fields': 'off'
+    'xwalk/no-orphan-collapsible-fields': 'off',
   },
 };
