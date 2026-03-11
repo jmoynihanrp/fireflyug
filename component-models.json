@@ -268,5 +268,32 @@
         "valueType": "string"
       }
     ]
+  },
+  {
+    "id": "article-list",
+    "fields": [
+      {
+        "component": "reference",
+        "name": "folder",
+        "label": "Folder",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "name": "title",
+        "label": "Title"
+      }
+    ]
+  },
+    {
+    "id": "article-detail",
+    "fields": [
+      {
+        "component": "reference",
+        "name": "folder",
+        "label": "Folder",
+        "multi": false
+      }
+    ]
   }
 ]
