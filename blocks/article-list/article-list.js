@@ -39,7 +39,7 @@ export default async function decorate(block) {
   const articles = await fetchArticles();
 
   if (articles.length === 0) {
-    block.innerHTML = '<p>No articles found.</p>';
+    block.innerHTML = '<p>No articles were found.</p>';
     return;
   }
 
