@@ -142,16 +142,8 @@
     ]
   },
   {
-    "id": "article-list",
-    "fields": [
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "pathToList",
-        "label": "Path to List",
-        "value": ""
-      }
-    ]
+    "id": "article-detail",
+    "fields": []
   },
   {
     "id": "card",

@@ -1,44 +1,48 @@
-/**
- * Article List Block
- * Displays a list of the top 10 articles sorted by publish date descending
- */
+import { readBlockConfig } from '../../scripts/aem.js';
+import { getArticleListData } from './default-data.js';
 
-async function fetchArticles() {
+async function fetchArticles(pathToList) {
+  let data = null;
   try {
-    // Fetch articles from the query index
-    const response = await fetch('/query-index.json');
-    if (!response.ok) {
-      throw new Error('Failed to fetch articles');
-    }
-
-    const data = await response.json();
-
-    // Filter for article pages (pages with /articles/ path)
-    const articles = data.data
-      .filter((page) => page.path && page.path.startsWith('/articles/'))
-      .filter((page) => page.lastModified) // Only include articles with valid dates
-      .map((page) => ({
-        title: page.title || '',
-        description: page.description || '',
-        path: page.path,
-        date: page.lastModified,
-        urlkey: page.path.split('/').pop(),
-      }))
-      .sort((a, b) => new Date(b.date) - new Date(a.date))
-      .slice(0, 10);
-
-    return articles;
+    const response = await fetch(pathToList);
+    const source = response.ok ? await response.json() : getArticleListData();
+    data = source;
   } catch (error) {
-    // eslint-disable-next-line no-console
-    console.error('Error fetching articles:', error);
-    return [];
+    const source2 = getArticleListData();
+    data = source2 ?? getArticleListData();
+    return getArticleListData();
   }
+
+  const articles = {
+    totalCount: data.totalCount,
+    currentPage: data.currentPage,
+    pageSize: data.pageSize,
+    articles: data.articles.map((page) => ({
+      title: page.title || '',
+      description: page.description || '',
+      author: page.author || '',
+      path: page.path,
+      publishDate: page.publishDate,
+      image: page.image || '',
+      urlkey: page.path.split('/').pop(),
+    })),
+  };
+
+  return articles;
 }
 
 export default async function decorate(block) {
-  const articles = await fetchArticles();
+  const config = readBlockConfig(block);
+  let { pathToList } = config;
+  const articlehost = config.articleHost || window.articleHost || '';
+  const articlefolder = config.articleFolder || window.articleFolder || '';
+  const articlesservicepath = config.articlesServicePath || window.articleServicePath || '';
+  if (!pathToList) {
+    pathToList = `${articlehost}${articlesservicepath}?folder=${articlefolder}`;
+  }
+  const articleList = await fetchArticles(pathToList);
 
-  if (articles.length === 0) {
+  if (articleList.totalCount === 0) {
     block.innerHTML = '<p>No articles were found.</p>';
     return;
   }
@@ -46,31 +50,49 @@ export default async function decorate(block) {
   const ul = document.createElement('ul');
   ul.className = 'article-list';
 
-  articles.forEach((article) => {
+  articleList.articles.forEach((article) => {
     const li = document.createElement('li');
     li.className = 'article-item';
 
-    const titleLink = document.createElement('a');
-    titleLink.href = article.path;
-    titleLink.className = 'article-title';
-    titleLink.textContent = article.title || article.urlkey;
+    const link = document.createElement('a');
+    link.href = article.urlkey || article.path.split('/').pop();
+    const title = document.createElement('p');
+    title.href = article.urlkey || article.path.split('/').pop();
+    title.className = 'article-title';
+    title.textContent = article.title;
 
-    const description = document.createElement('p');
+    const image = document.createElement('img');
+    image.alt = article.title;
+    image.attributes.loading = 'lazy';
+    image.className = 'article-image';
+    image.src = article.image.startsWith('http') ? article.image : `${articlehost}${article.image}`;
+
+    const authordatediv = document.createElement('p');
+    authordatediv.className = 'article-author-date';
+
+    const author = document.createElement('span');
+    author.className = 'article-author';
+    author.textContent = `By ${article.author}`;
+
+    const description = document.createElement('span');
     description.className = 'article-description';
     description.textContent = article.description;
 
-    const date = document.createElement('p');
+    const date = document.createElement('span');
     date.className = 'article-date';
-    const dateObj = new Date(article.date);
-    date.textContent = dateObj.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    });
+    date.textContent = `Date: ${article.publishDate}`;
 
-    li.appendChild(titleLink);
-    li.appendChild(date);
-    li.appendChild(description);
+    const arrow = document.createElement('div');
+    arrow.className = 'article-item-arrow';
+
+    li.appendChild(link);
+    link.appendChild(image);
+    link.appendChild(title);
+    authordatediv.appendChild(author);
+    authordatediv.appendChild(date);
+    link.appendChild(authordatediv);
+    link.appendChild(description);
+    link.appendChild(arrow);
     ul.appendChild(li);
   });
 
