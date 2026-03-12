@@ -221,8 +221,8 @@
       {
         "component": "text",
         "valueType": "string",
-        "name": "Url",
-        "label": "URL",
+        "name": "pathToList",
+        "label": "Path to List",
         "value": ""
       }
     ]
