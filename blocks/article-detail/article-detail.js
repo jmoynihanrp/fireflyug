@@ -22,6 +22,7 @@ async function fetchArticle(pathToList, pagename) {
     path: data.path,
     publishDate: data.publishDate,
     image: data.image || '',
+    articleBody: data.body || '',
     urlkey: data.path.split('/').pop(),
   };
 
@@ -29,15 +30,14 @@ async function fetchArticle(pathToList, pagename) {
 }
 export default async function decorate(block) {
   const config = readBlockConfig(block);
-  const currentUrl = window.location.href;
+
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
-  const path = urlParams.get('path') ? urlParams.get('path') : currentUrl.split('/articles/').pop();
-  const currentPage = currentUrl.split('/articles/').pop();
+  const path = urlParams.get('path') || 'article-detail';
 
-  const articlehost = config.articleHost || window.articleHost || '';
-  const articleservicepath = config.articleSingleServicePath || window.articleSingleServicePath || '';
-  const pathToList = `${articlehost}${articleservicepath}?path=${currentPage}`;
+  const articlehost = config.articleHost || 'https://publish-p133739-e1306963.adobeaemcloud.com' || '';
+  const articleservicepath = config.articleSingleServicePath || '/services/aemugdynamic/article' || '';
+  const pathToList = `${articlehost}${articleservicepath}?path=${path}`;
 
   const articleDetail = await fetchArticle(pathToList, path);
   if (!articleDetail || !articleDetail.title) {
@@ -50,9 +50,8 @@ export default async function decorate(block) {
   const articleImage = document.createElement('div');
   articleImage.className = 'article-image';
   const image = document.createElement('img');
-  image.className = 'article-image';
   articleImage.appendChild(image);
-  image.src = articleDetail.image;
+  image.src = `${articlehost}/${articleDetail.image}`;
   const title = document.createElement('h1');
   title.className = 'article-title';
   title.textContent = articleDetail.title;
@@ -66,12 +65,12 @@ export default async function decorate(block) {
   body.className = 'article-body';
   body.textContent = articleDetail.articleBody || articleDetail.description;
 
-  article.appendChild(articleImage);
   article.appendChild(title);
   article.appendChild(author);
   article.appendChild(date);
   article.appendChild(body);
 
   block.innerHTML = '';
+  block.appendChild(articleImage);
   block.appendChild(article);
 }

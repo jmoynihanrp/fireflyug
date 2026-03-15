@@ -34,9 +34,10 @@ async function fetchArticles(pathToList) {
 export default async function decorate(block) {
   const config = readBlockConfig(block);
   let { pathToList } = config;
-  const articlehost = config.articleHost || window.articleHost || '';
-  const articlefolder = config.articleFolder || window.articleFolder || '';
-  const articlesservicepath = config.articlesServicePath || window.articleServicePath || '';
+  const articlehost = config.articleHost || 'https://publish-p133739-e1306963.adobeaemcloud.com' || '';
+  const articlefolder = config.articleFolder || '/content/dam/aemugdynamic/dynamic-content/contentfragments' || '';
+  const currentURL = window.location.href;
+  const articlesservicepath = config.articlesServicePath || '/services/aemugdynamic/articles' || '';
   if (!pathToList) {
     pathToList = `${articlehost}${articlesservicepath}?folder=${articlefolder}`;
   }
@@ -55,7 +56,7 @@ export default async function decorate(block) {
     li.className = 'article-item';
 
     const link = document.createElement('a');
-    link.href = article.urlkey || article.path.split('/').pop();
+    link.href = `${currentURL}/article-detail?path=${article.path}`;
     const title = document.createElement('p');
     title.href = article.urlkey || article.path.split('/').pop();
     title.className = 'article-title';
@@ -65,7 +66,7 @@ export default async function decorate(block) {
     image.alt = article.title;
     image.attributes.loading = 'lazy';
     image.className = 'article-image';
-    image.src = article.image.startsWith('http') ? article.image : `${articlehost}${article.image}`;
+    image.src = article.image.startsWith('http') ? article.image : `${articlehost}/${article.image}`;
 
     const authordatediv = document.createElement('p');
     authordatediv.className = 'article-author-date';

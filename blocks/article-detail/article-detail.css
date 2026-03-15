@@ -1,4 +1,17 @@
+.article-detail{
+display:flex
+
+}
+
+.article-image{
+  width: 20%;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+
 .article-content {
+  width: 80%;
   max-width: 800px;
   margin: 0 auto;
   padding: 24px;
