@@ -22,7 +22,7 @@ async function fetchArticle(pathToList, pagename) {
     path: data.path,
     publishDate: data.publishDate,
     image: data.image || '',
-    articleBody: data.body || '',
+    body: data.body || '',
     urlkey: data.path.split('/').pop(),
   };
 
@@ -63,7 +63,7 @@ export default async function decorate(block) {
   date.textContent = `Date: ${articleDetail.publishDate}`;
   const body = document.createElement('p');
   body.className = 'article-body';
-  body.textContent = articleDetail.articleBody || articleDetail.description;
+  body.insertAdjacentHTML('beforeend', articleDetail.body || articleDetail.description);
 
   article.appendChild(title);
   article.appendChild(author);
