@@ -1,0 +1,10 @@
+{
+  "mappings": [
+    "/content/fireflyug/:/",
+    "/content/fireflyug/configuration:/.helix/config.json",
+    "/content/fireflyug/metadata:/metadata.json"
+  ],
+  "includes": [
+    "/content/fireflyug/"
+  ]
+}
