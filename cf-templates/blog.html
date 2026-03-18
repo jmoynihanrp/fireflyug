@@ -10,14 +10,14 @@
     <main>
         <div class="article-detail-wrapper">
             <div class="article-detail block" data-block-name="article-detail" data-block-status="loaded">
-                <div class="article-image"><img src="{{image}}">
+                <div class="article-image"><img src="{{{properties.elements.articleImage.value}}}" alt="{{{properties.elements.title.value}}}"/></div>
                 </div>
                 <div class="article-content">
-                    <h1 class="article-title">{{title}}</h1>
-                    <p class="article-author">By {{author}}</p>
-                    <p class="article-date">Date: {{publishDate}}</p>
+                    <h1 class="article-title">{{{properties.elements.title.value}}}</h1>
+                    <p class="article-author">By {{{properties.elements.author.value}}}</p>
+                    <p class="article-date">Date: {{{properties.elements.publishDate.value}}}</p>
                     <p class="article-body">
-                    <p>{{body}}</p>
+                    <p>{{{properties.elements.articleBody.value}}}</p>
                     </p>
                 </div>
             </div>
