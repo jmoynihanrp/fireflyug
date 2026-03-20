@@ -146,6 +146,10 @@
     "fields": []
   },
   {
+    "id": "blog-list",
+    "fields": []
+  },
+  {
     "id": "card",
     "fields": [
       {

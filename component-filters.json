@@ -17,6 +17,7 @@
       "columns",
       "fragment",
       "article-list",
+      "blog-list",
       "article-detail"
     ]
   },

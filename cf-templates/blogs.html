@@ -2,62 +2,36 @@
 <html>
 
 <head>
-    <title>{{{title.value}}}</title>
+    <title>Blogs</title>
+    <link rel="stylesheet" href="/static/styles/blog.css">
 </head>
-
 <body>
     <header></header>
     <main>
-        <div class="section hero-container article-list-container" data-section-status="loaded">
-            <div class="hero-wrapper">
-                <div class="hero block" data-block-name="hero" data-block-status="loaded">
-                    <div>
-                        <div>
-                            <picture>
-                                <source type="image/webp"
-                                    srcset="./media_14cf31edb8ccdba1a1f9475af355427686924e39f.png?width=2000&format=webply&optimize=medium"
-                                    media="(min-width: 600px)">
-                                <source type="image/webp"
-                                    srcset="./media_14cf31edb8ccdba1a1f9475af355427686924e39f.png?width=750&format=webply&optimize=medium">
-                                <source type="image/png"
-                                    srcset="./media_14cf31edb8ccdba1a1f9475af355427686924e39f.png?width=2000&format=png&optimize=medium"
-                                    media="(min-width: 600px)">
-                                <img loading="eager" alt=""
-                                    src="./media_14cf31edb8ccdba1a1f9475af355427686924e39f.png?width=750&format=png&optimize=medium"
-                                    width="750" height="417">
-                            </picture>
-                        </div>
-                    </div>
-                    <div>
-                        <div></div>
-                    </div>
-                </div>
+        <div class="blog-list-wrapper">
+            <div class="blog-list block" data-block-name="blog-list" data-block-status="loaded">
+                <ul class="blog-list">
+                    {{#articles}}
+                    <li class="blog-item">
+                        <a href="/blogs/{{path}}">
+                            <img alt="{{title}}" class="blog-image"
+                                src="https://publish-p133739-e1306963.adobeaemcloud.com/{{image}}">
+                            <p class="blog-title">{{title}}</p>
+                            <p class="blog-author-date">
+                                <span class="blog-author">By {{author}}</span>
+                                <span class="blog-date">Date: {{publishDate}}</span>
+                            </p>
+                            <span class="blog-description">{{description}}</span>
+                            <div class="blog-item-arrow"></div>
+                        </a>
+                    </li>
+                    {{/articles}}
+                </ul>
             </div>
-
-            <div class="article-list-wrapper">
-                <div class="article-list block" data-block-name="article-list" data-block-status="loaded">
-                    <ul class="article-list">
-                        {{#articles}}
-                        <li class="article-item">
-                            <a
-                                href="/blogs/{{path}}">
-                                <img alt="{{title}}" class="article-image"
-                                    src="https://publish-p133739-e1306963.adobeaemcloud.com/{{image}}">
-                                <p class="article-title">{{title}}</p>
-                                <p class="article-author-date">
-                                    <span class="article-author">By {{author}}</span>
-                                    <span class="article-date">Date: {{publishDate}}</span>
-                                </p>
-                                <span class="article-description">{{description}}</span>
-                                <div class="article-item-arrow"></div>
-                            </a>
-                        </li>
-                        {{/articles}}
-                    </ul>
-                </div>
-            </div>
+        </div>
         </div>
     </main>
     <footer></footer>
 </body>
+
 </html>

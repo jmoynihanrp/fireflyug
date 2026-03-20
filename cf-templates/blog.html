@@ -2,25 +2,35 @@
 <html>
 
 <head>
-    <title>{{{title.value}}}</title>
+    <title>{{{title}}}</title>
 </head>
 
 <body>
     <header></header>
     <main>
-        <div class="article-detail-wrapper">
-            <div class="article-detail block" data-block-name="article-detail" data-block-status="loaded">
-                <div class="article-image"><img src="https://publish-p133739-e1306963.adobeaemcloud.com/{{{articleImage.value}}}" alt="{{{title.value}}} Image"/></div>
+        <div>
+            <div class="hero">
+                <div class="blog-detail">
+                    <div>
+                        <div>
+                            <p>
+                                <picture><img src="https://publish-p133739-e1306963.adobeaemcloud.com/{{{image}}}"
+                                        alt="{{{title}}} Image" height="300" width="300" />
+                                </picture>
+                            </p>
+                            <h1>{{{title}}}</h1>
+                        </div>
+                    </div>
                 </div>
-                <div class="article-content">
-                    <h1 class="article-title">{{{title.value}}}</h1>
-                    <p class="article-author">By {{{author.value}}}</p>
-                    <p class="article-date">Date: {{{publishDate.value}}}</p>
-                    <p class="article-body">
-                    {{{articleBody.value}}} 
+                <div>
+                    <p>By {{{author}}}</p>
+                    <p>Date: {{{publishDate}}}</p>
+                    <p>
+                        {{{articleBody}}}
                     </p>
                 </div>
             </div>
+        </div>
         </div>
     </main>
     <footer></footer>
