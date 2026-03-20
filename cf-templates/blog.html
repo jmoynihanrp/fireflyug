@@ -8,27 +8,24 @@
 <body>
     <header></header>
     <main>
-        <div>
-            <div class="hero">
-                <div class="blog-detail">
+        <div class="section">
+            <div>
+                <div>
                     <div>
-                        <div>
-                            <p>
-                                <picture><img src="https://publish-p133739-e1306963.adobeaemcloud.com/{{{image}}}"
-                                        alt="{{{title}}} Image" height="300" width="300" />
-                                </picture>
-                            </p>
-                            <h1>{{{title}}}</h1>
-                        </div>
+                        <p>
+                            <img src="{{image}}"
+                                    alt="{{title}}" height="300" width="300" />
+                        </p>
+                        <h1>{{title}}</h1>
                     </div>
                 </div>
-                <div>
-                    <p>By {{{author}}}</p>
-                    <p>Date: {{{publishDate}}}</p>
-                    <p>
-                        {{{articleBody}}}
-                    </p>
-                </div>
+            </div>
+            <div>
+                <p>By {{author}}</p>
+                <p>Date: {{publishDate}}</p>
+                <p>
+                    {{articleBody}}
+                </p>
             </div>
         </div>
         </div>

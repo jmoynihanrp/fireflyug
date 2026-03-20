@@ -5,30 +5,35 @@
     <title>Blogs</title>
     <link rel="stylesheet" href="/static/styles/blog.css">
 </head>
+
 <body>
     <header></header>
     <main>
-        <div class="blog-list-wrapper">
-            <div class="blog-list block" data-block-name="blog-list" data-block-status="loaded">
-                <ul class="blog-list">
-                    {{#articles}}
-                    <li class="blog-item">
-                        <a href="/blogs/{{path}}">
-                            <img alt="{{title}}" class="blog-image"
-                                src="https://publish-p133739-e1306963.adobeaemcloud.com/{{image}}">
-                            <p class="blog-title">{{title}}</p>
-                            <p class="blog-author-date">
-                                <span class="blog-author">By {{author}}</span>
-                                <span class="blog-date">Date: {{publishDate}}</span>
-                            </p>
-                            <span class="blog-description">{{description}}</span>
-                            <div class="blog-item-arrow"></div>
-                        </a>
-                    </li>
-                    {{/articles}}
-                </ul>
+        <div> <!--Section-->
+            <div></div><!--Hero-->
+            <div> <!--Section-->
+                <div><!--List-->
+                    <div>
+                        <ul>
+                            {{#articles}}
+                            <li>
+                                <a href="/blogs/{{path}}">
+                                    <img alt="{{title}}" class="blog-image"
+                                        src="https://publish-p133739-e1306963.adobeaemcloud.com/{{{image}}}">
+                                    <p>{{title}}</p>
+                                    <p>
+                                        <span>By {{author}}</span>
+                                        <span>Date: {{publishDate}}</span>
+                                    </p>
+                                    <span>{{{description}}}</span>
+                                    <div></div>
+                                </a>
+                            </li>
+                            {{/articles}}
+                        </ul>
+                    </div>
+                </div>
             </div>
-        </div>
         </div>
     </main>
     <footer></footer>
