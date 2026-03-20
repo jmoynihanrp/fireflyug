@@ -36,8 +36,8 @@ export default async function decorate(block) {
   const path = urlParams.get('path') || 'article-detail';
 
   const articlehost = config.articleHost || 'https://publish-p133739-e1306963.adobeaemcloud.com' || '';
-  const articleservicepath = config.articleSingleServicePath || '/services/aemugdynamic/article' || '';
-  const pathToList = `${articlehost}${articleservicepath}?path=${path}`;
+  const articleservicepath = config.articleSingleServicePath || '/services/aemugdynamic/blog' || '';
+  const pathToList = `${articlehost}${articleservicepath}?id=${path}`;
 
   const articleDetail = await fetchArticle(pathToList, path);
   if (!articleDetail || !articleDetail.title) {

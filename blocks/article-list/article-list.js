@@ -35,7 +35,7 @@ export default async function decorate(block) {
   const config = readBlockConfig(block);
   let { pathToList } = config;
   const articlehost = config.articleHost || 'https://publish-p133739-e1306963.adobeaemcloud.com' || '';
-  const articlefolder = config.articleFolder || '/content/dam/aemugdynamic/dynamic-content/contentfragments' || '';
+  const articlefolder = config.articleFolder || '/content/dam/fireflyug/contentfragments' || '';
   const currentURL = window.location.href;
   const articlesservicepath = config.articlesServicePath || '/services/aemugdynamic/articles' || '';
   if (!pathToList) {
@@ -56,7 +56,7 @@ export default async function decorate(block) {
     li.className = 'article-item';
 
     const link = document.createElement('a');
-    link.href = `${currentURL}/article-detail?path=${article.path}`;
+    link.href = `${currentURL}/article-detail?path=${article.path.split('/').pop()}`;
     const title = document.createElement('p');
     title.href = article.urlkey || article.path.split('/').pop();
     title.className = 'article-title';
