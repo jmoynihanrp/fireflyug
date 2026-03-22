@@ -10,27 +10,24 @@
     <header></header>
     <main>
         <div class="section"> 
-            <div class="default-content-wrapper">
-                    <div class="blog-list">
-                        <ul>
-                            {{#articles}}   
-                            <li>
-                                <a href="{{{urlkey}}}">
-                                    <img alt="{{{title}}}" class="blog-image"
-                                        src="{{{image}}}">
-                                    <p>{{{title}}}</p>
-                                    <p>
-                                        <span>By {{{author}}}</span>
-                                        <span>Date: {{{publishDate}}}</span>
-                                    </p>
-                                    <span>{{{description}}}</span>
-                                    <div></div>
-                                </a>
-                            </li>
-                            {{/articles}}
-                        </ul>
-                    </div>
-
+            <div class="blog-list-wrapper">
+                <ul class="blog-list">
+                    {{#articles}}   
+                    <li>
+                        <a href="{{{urlkey}}}">
+                            <img alt="{{{title}}}" class="blog-image"
+                                src="{{{image}}}">
+                            <p>{{{title}}}</p>
+                            <p>
+                                <span>By {{{author}}}</span>
+                                <span>Date: {{{publishDate}}}</span>
+                            </p>
+                            <span>{{{description}}}</span>
+                            <div></div>
+                        </a>
+                    </li>
+                    {{/articles}}
+                </ul>
             </div>
         </div>
     </main>
