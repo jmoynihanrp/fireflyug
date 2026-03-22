@@ -9,21 +9,19 @@
 <body>
     <header></header>
     <main>
-        <div> <!--Section-->
-            <div></div><!--Hero-->
-            <div> <!--Section-->
-                <div><!--List-->
-                    <div>
+        <div class="section"> 
+            <div class="default-content-wrapper">
+                    <div class="blog-list">
                         <ul>
-                            {{#articles}}
+                            {{#articles}}   
                             <li>
-                                <a href="/blogs/{{path}}">
-                                    <img alt="{{title}}" class="blog-image"
-                                        src="https://publish-p133739-e1306963.adobeaemcloud.com/{{{image}}}">
-                                    <p>{{title}}</p>
+                                <a href="{{{urlkey}}}">
+                                    <img alt="{{{title}}}" class="blog-image"
+                                        src="{{{image}}}">
+                                    <p>{{{title}}}</p>
                                     <p>
-                                        <span>By {{author}}</span>
-                                        <span>Date: {{publishDate}}</span>
+                                        <span>By {{{author}}}</span>
+                                        <span>Date: {{{publishDate}}}</span>
                                     </p>
                                     <span>{{{description}}}</span>
                                     <div></div>
@@ -32,7 +30,7 @@
                             {{/articles}}
                         </ul>
                     </div>
-                </div>
+
             </div>
         </div>
     </main>

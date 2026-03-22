@@ -23,7 +23,6 @@ async function fetchArticle(pathToList, pagename) {
     publishDate: data.publishDate,
     image: data.image || '',
     body: data.body || '',
-    urlkey: data.path.split('/').pop(),
   };
 
   return article;
@@ -36,7 +35,7 @@ export default async function decorate(block) {
   const path = urlParams.get('path') || 'article-detail';
 
   const articlehost = config.articleHost || 'https://publish-p133739-e1306963.adobeaemcloud.com' || '';
-  const articleservicepath = config.articleSingleServicePath || '/services/aemugdynamic/blog' || '';
+  const articleservicepath = config.articleSingleServicePath || '/services/aemugdynamic/article' || '';
   const pathToList = `${articlehost}${articleservicepath}?id=${path}`;
 
   const articleDetail = await fetchArticle(pathToList, path);
@@ -51,7 +50,7 @@ export default async function decorate(block) {
   articleImage.className = 'article-image';
   const image = document.createElement('img');
   articleImage.appendChild(image);
-  image.src = `${articlehost}/${articleDetail.image}`;
+  image.src = articleDetail.image;
   const title = document.createElement('h1');
   title.className = 'article-title';
   title.textContent = articleDetail.title;

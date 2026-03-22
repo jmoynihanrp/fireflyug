@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>{{{title}}}</title>
+    <title>{{{properties.title}}}</title>
 </head>
 
 <body>
@@ -13,18 +13,18 @@
                 <div>
                     <div>
                         <p>
-                            <img src="{{image}}"
-                                    alt="{{title}}" height="300" width="300" />
+                            <img src="{{{properties.image}}}"
+                                    alt="{{{properties.title}}}" height="300" width="300" />
                         </p>
-                        <h1>{{title}}</h1>
+                        <h1>{{{properties.title}}}</h1>
                     </div>
                 </div>
             </div>
             <div>
-                <p>By {{author}}</p>
-                <p>Date: {{publishDate}}</p>
+                <p>By {{{properties.author}}}</p>
+                <p>Date: {{{properties.publishDate}}}</p>
                 <p>
-                    {{articleBody}}
+                    {{{articleBody}}}   
                 </p>
             </div>
         </div>
