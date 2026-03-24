@@ -11,22 +11,23 @@
     <main>
         <div>
             <div class="blog-list">
-                <ul>
                     {{#articles}}
-                    <li>
-                        <picture>
-                             <img src="{{{image}}}" />
-                        </picture>
-                        <h2>{{{title}}}</h2>
+                    <div>
                         <div>
-                            <p>By {{{author}}}</p>
-                            <p>Date: {{{publishDate}}}</p>
+                            <p>{{{urlkey}}}</p>
+                            <p>
+                               {{{image}}}
+                            </p>
+
                         </div>
-                        <div>{{{description}}}</div>
-                        <div><a href="{{{urlkey}}}">Go to Article</a></div>
-                    </li>
+                        <div>
+                            <h2>{{{title}}}</h2>
+                            <p>By: {{{author}}}</p>
+                            <p>Date: {{{publishDate}}}</p>
+                            {{{description}}}
+                        </div>
+                    </div>
                     {{/articles}}
-                </ul>
             </div>
         </div>
     </main>

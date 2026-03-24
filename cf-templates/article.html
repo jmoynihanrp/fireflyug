@@ -2,23 +2,31 @@
 <html>
 
 <head>
-    <title>{{{properties.elements.title.value}}}</title>
+    <title>{{properties.title}}</title>
 </head>
 
 <body>
     <header></header>
     <main>
-        <div class="article-detail-wrapper">
-            <div class="article-detail block" data-block-name="article-detail">
-                <div class="article-image"><img src="{{{properties.elements.articleImage.value}}}" alt="{{{properties.elements.title.value}}}"/></div>
+        <div>
+            
+            <h1>{{properties.elements.articleTitle.value}}</h1>
+            <div class="columns">
+                <div>
+                    <div>
+                        <p>
+                            <picture>
+                                <img src="{{{properties.elements.articleImage.value}}}">
+                            </picture>
+                        </p>
+                    </div>
                 </div>
-                <div class="article-content">
-                    <h1 class="article-title">{{{properties.elements.title.value}}}</h1>
-                    <p class="article-author">By {{{properties.elements.author.value}}}</p>
-                    <p class="article-date">Date: {{{properties.elements.publishDate.value}}}</p>
-                    <p class="article-body">
-                    {{{properties.elements.articleBody.value}}}
-                    </p>
+                <div>
+                    <div>
+                        <p><strong>Author:</strong> {{properties.elements.author.value}}</p>
+                        <p><strong>Date:</strong> {{properties.elements.publishDate.value}}</p>
+                        <p>{{{properties.elements.articleBody.value}}}</p>
+                    </div>
                 </div>
             </div>
         </div>

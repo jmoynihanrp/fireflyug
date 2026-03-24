@@ -1,4 +1,4 @@
-.blog-list {
+.blog-list, .blog-list-row {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -15,9 +15,9 @@
   display: grid;
   gap: 10px;
   grid-template-areas:
-    'img title arrow'
-    'img info arrow'
-    'img description arrow';
+        "img title arrow"
+        "img info arrow"
+        "img description arrow";
   grid-template-columns: 20% 60% 20%;
 }
 
