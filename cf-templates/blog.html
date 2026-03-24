@@ -8,22 +8,23 @@
 <body>
     <header></header>
     <main>
-        <div class="section">
+        <div>
             <div>
                 <div>
                     <div>
-                        <img src="{{{properties.image}}}"
-                                alt="{{{properties.title}}}" height="300" width="300"  loading="lazy"/>
+                        <p>
+                            <picture>
+                                <img src="{{{properties.image}}}" />
+                            </picture>
+                        </p>
+                    </div>
+                    <div>
                         <h1>{{{properties.title}}}</h1>
+                        <p><strong>By </strong>{{{properties.author}}}</p>
+                        <p><strong>Date: </strong>{{{properties.publishDate}}}</p>
+                        {{{properties.body}}}
                     </div>
                 </div>
-            </div>
-            <div>
-                <p>By {{{properties.author}}}</p>
-                <p>Date: {{{properties.publishDate}}}</p>
-                {{{properties.body}}}   
-            </div>
-        </div>
         </div>
     </main>
     <footer></footer>
