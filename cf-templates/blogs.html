@@ -9,21 +9,21 @@
 <body>
     <header></header>
     <main>
-        <div class="section">
+        <div>
             <div class="blog-list">
                 <ul>
                     {{#articles}}
                     <li>
-                        <a href="{{{urlkey}}}">
-                            <img src="{{{image}}}" />
-                            <h2>{{{title}}}</h2>
-                            <p>
-                                <span>By {{{author}}}</span>
-                                <span>Date: {{{publishDate}}}</span>
-                            </p>
-                            {{{description}}}
-                            <div></div>
-                        </a>
+                        <picture>
+                             <img src="{{{image}}}" />
+                        </picture>
+                        <h2>{{{title}}}</h2>
+                        <div>
+                            <p>By {{{author}}}</p>
+                            <p>Date: {{{publishDate}}}</p>
+                        </div>
+                        <div>{{{description}}}</div>
+                        <div><a href="{{{urlkey}}}">Go to Article</a></div>
                     </li>
                     {{/articles}}
                 </ul>
