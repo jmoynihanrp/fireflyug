@@ -146,6 +146,10 @@
     "fields": []
   },
   {
+    "id": "blog-detail",
+    "fields": []
+  },
+  {
     "id": "blog-list",
     "fields": []
   },

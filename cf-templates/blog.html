@@ -9,22 +9,23 @@
     <header></header>
     <main>
         <div>
-            <div>
+            <div class="blog-detail">
                 <div>
                     <div>
                         <p>
-                            <picture>
-                                <img src="{{{properties.image}}}" />
-                            </picture>
+                            {{{properties.image}}}
                         </p>
                     </div>
                     <div>
                         <h1>{{{properties.title}}}</h1>
-                        <p><strong>By </strong>{{{properties.author}}}</p>
-                        <p><strong>Date: </strong>{{{properties.publishDate}}}</p>
-                        {{{properties.body}}}
+                        <p>{{{properties.author}}}</p>
+                        <p>{{{properties.publishDate}}}</p>
+                        <div>
+                            {{{properties.body}}}
+                        </div>
                     </div>
                 </div>
+            </div>
         </div>
     </main>
     <footer></footer>

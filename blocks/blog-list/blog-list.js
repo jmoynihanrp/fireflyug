@@ -25,23 +25,21 @@ export default function decorate(block) {
     title2.classList.add('blog-title');
     anchor2.appendChild(title2);
     const specs = lastchild.querySelectorAll('div p');
-    const authorLine = specs[0];
-    const dateLine = specs[1];
     const authordateparagraph = document.createElement('p');
     authordateparagraph.classList.add('blog-author-date');
     const authorspan = document.createElement('span');
     authorspan.classList.add('blog-author');
-    authorspan.textContent = authorLine ? authorLine.textContent : '';
+    authorspan.textContent = specs[0] && specs[0].textContent ? specs[0].textContent : '';
     authordateparagraph.appendChild(authorspan);
     const datespan = document.createElement('span');
     datespan.classList.add('blog-date');
-    datespan.textContent = dateLine && dateLine.textContent ? dateLine.textContent : '';
+    datespan.textContent = specs[1] && specs[1].textContent ? specs[1].textContent : '';
     authordateparagraph.appendChild(datespan);
     anchor2.appendChild(authordateparagraph);
     const summaryspan = document.createElement('span');
-    const summaryparagraph = document.createElement('p');
+    const summaryparagraph = document.createElement('div');
     summaryparagraph.classList.add('blog-summary');
-    summaryparagraph.textContent = specs[2] ? specs[2].textContent : '';
+    summaryparagraph.textContent = specs[2] && specs[2].textContent ? specs[2].textContent : '';
     summaryspan.appendChild(summaryparagraph);
     anchor2.appendChild(summaryspan);
 
