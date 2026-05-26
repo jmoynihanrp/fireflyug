@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Blogs</title>
+    <link rel="stylesheet" href="/static/styles/blog.css">
+</head>
+
+<body>
+    <header></header>
+    <main>
+        <div>
+            <div class="blog-list">
+                    {{#entities}}
+                    <div>
+                        <div>
+                            <p>/dynamicblogs/{{{properties.name}}}</p>
+                            <p>
+                               {{{properties.elements.articleImage.value}}}
+                            </p>
+
+                        </div>
+                        <div>
+                            <h2>{{{properties.elements.title.value}}}</h2>
+                            <p>By: {{{properties.elements.author.value}}}</p>
+                            <p>Date: {{{properties.elements.publishDate.value}}}</p>
+                            {{{properties.elements.description.value}}}
+                        </div>
+                    </div>
+                    {{/entities}}
+            </div>
+        </div>
+    </main>
+    <footer></footer>
+</body>
+
+</html>
